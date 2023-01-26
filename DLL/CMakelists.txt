@@ -1,0 +1,39 @@
+# ########################################################
+# ######## CMAKE BASIC CONFIGURATIONS ####################
+# ########################################################
+
+# Set minimum required version
+cmake_minimum_required(VERSION 3.10)
+
+#
+set(IS_STRUCTURED FALSE)
+
+# ########################################################
+# ######## CMAKE PROJECT CONFIGURATIONS ##################
+# ########################################################
+if(${IS_STRUCTURED})
+  # Set the source files
+  file(GLOB_RECURSE src_files src/*.c)
+  message(STATUS source files: ${src_files})
+
+  # Set the header files
+  file(GLOB_RECURSE inc_files inc/*.c)
+  message(STATUS source files: ${inc_files})
+
+  #
+  add_library(DLL STATIC
+
+    # ${src_files}
+    # ${inc_files}
+  )
+else()
+  #
+  add_library(DLL STATIC
+    DLL_prv.h
+    DLL_int.h
+    DLL_prg.c
+  )
+endif()
+
+# Confirmation msg
+message("xorDLL -- prvmsg: Done.")
