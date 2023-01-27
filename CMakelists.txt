@@ -32,12 +32,12 @@ endif(CMAKE_COMPILER_IS_GNUCC)
 # ######## CMAKE PROJECT CONFIGURATIONS ##################
 # ########################################################
 # Set project name
-project(DLL_TEST VERSION 0.0)
+project(xorDLL_TEST VERSION 0.0)
 
 if(EXISTS ../main.c)
   #
   set(MY_SUBDIRS
-    ${CMAKE_SOURCE_DIR}/DLL
+    ${CMAKE_SOURCE_DIR}/xorDLL
   )
   add_subdirectory(${MY_SUBDIRS})
 
@@ -46,13 +46,13 @@ if(EXISTS ../main.c)
 
   #
   set(MY_INCLUDED_DIRS
-    DLL/
+    xorDLL/
   )
   target_include_directories(${PROJECT_NAME} PRIVATE ${MY_INCLUDED_DIRS})
 
   # Libraries added
   set(MY_LINKED_LIBS
-    DLL
+    xorDLL
   )
   target_link_libraries(${PROJECT_NAME} PRIVATE ${MY_LINKED_LIBS})
 
